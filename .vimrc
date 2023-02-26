@@ -9,6 +9,8 @@ set si
 set smarttab
 set showmatch
 set nobackup
+set nowritebackup
+set signcolumn=yes
 set nowb
 set noswapfile
 set autoindent
@@ -16,8 +18,8 @@ set noexpandtab
 set tabstop=4
 set shiftwidth=4
 set encoding=UTF-8
-syntax on
 set t_Co=256
+syntax on
 
 call plug#begin('~/.vim/plugged')
 	Plug 'tpope/vim-fugitive'
@@ -44,12 +46,11 @@ let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
 
 let g:NERDTreeWinPos = "right"
-nnoremap <C-b> :NERDTreeToggle<CR>
-inoremap <C-b> :NERDTreeToggle<CR>
-nnoremap <C-f> :NERDTreeFind<CR>
+inoremap <c-b> <Esc>:NERDTreeToggle<cr>
+nnoremap <c-b> <Esc>:NERDTreeToggle<cr>
+nnoremap <c-f> <Esc>:NERDTreeFind<cr>
 
 
-" use <tab> to trigger completion and navigate to the next complete item
 function! CheckBackspace() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
@@ -59,3 +60,4 @@ inoremap <silent><expr> <Tab>
       \ coc#pum#visible() ? coc#pum#next(1) :
       \ CheckBackspace() ? "\<Tab>" :
       \ coc#refresh()
+
