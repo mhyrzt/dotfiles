@@ -30,7 +30,8 @@ call plug#begin('~/.vim/plugged')
 	Plug 'mattn/emmet-vim'
 	Plug 'tpope/vim-commentary'
 	Plug 'airblade/vim-gitgutter'
-	Plug 'valloric/youcompleteme'
+	"Plug 'valloric/youcompleteme'
+	Plug 'neoclide/coc.nvim'
 	Plug 'ryanoasis/vim-devicons'
 call plug#end()
 
@@ -46,7 +47,18 @@ let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standar
 let g:pear_tree_repeatable_expand = 0
 
 let g:NERDTreeWinPos = "right"
-nnoremap <leader>n :NERDTreeFocus<CR>
-nnoremap <C-n> :NERDTree<CR>
-nnoremap <C-t> :NERDTreeToggle<CR>
+nnoremap <C-b> :NERDTreeToggle<CR>
+inoremap <C-b> :NERDTreeToggle<CR>
 nnoremap <C-f> :NERDTreeFind<CR>
+
+
+" use <tab> to trigger completion and navigate to the next complete item
+function! CheckBackspace() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+inoremap <silent><expr> <Tab>
+      \ coc#pum#visible() ? coc#pum#next(1) :
+      \ CheckBackspace() ? "\<Tab>" :
+      \ coc#refresh()
