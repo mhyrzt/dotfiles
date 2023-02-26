@@ -26,11 +26,10 @@ call plug#begin('~/.vim/plugged')
 	Plug 'vim-airline/vim-airline-themes'
 	Plug 'scrooloose/nerdtree'
 	Plug 'ayu-theme/ayu-vim'
-	Plug 'tmsvg/pear-tree'	
+	Plug 'jiangmiao/auto-pairs'
 	Plug 'mattn/emmet-vim'
 	Plug 'tpope/vim-commentary'
 	Plug 'airblade/vim-gitgutter'
-	"Plug 'valloric/youcompleteme'
 	Plug 'neoclide/coc.nvim'
 	Plug 'ryanoasis/vim-devicons'
 call plug#end()
@@ -43,8 +42,6 @@ let g:AirlineTheme='simple'
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
-
-let g:pear_tree_repeatable_expand = 0
 
 let g:NERDTreeWinPos = "right"
 nnoremap <C-b> :NERDTreeToggle<CR>
