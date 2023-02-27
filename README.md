@@ -19,3 +19,8 @@ chmod +x setup.sh
 ```bash
  export DISPLAY=`grep -oP "(?<=nameserver ).+" /etc/resolv.conf`:0.0
 ```
+
+### Jupyter
+```bash
+alias jupyter-lab="jupyter lab --ip $(python3 -c "import subprocess; subprocess.run(['hostname', '-I'], text=True).stdout")"
+```
