@@ -10,7 +10,7 @@ chmod +x setup.sh
 **NOTES:** make sure you have install `Hack` font correctly. 
 
 ## WSL 2
-### `matplotlib`
+### `matplotlib`, `pygame` & more
 - windows setup
   - install [VcXsrv](https://sourceforge.net/projects/vcxsrv/)
   - tick `Disable Access Control`
