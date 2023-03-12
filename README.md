@@ -20,6 +20,11 @@ chmod +x setup.sh
  export DISPLAY=`grep -oP "(?<=nameserver ).+" /etc/resolv.conf`:0.0
 ```
 
+- also install:
+```bash
+sudo apt-get install libsdl2-dev
+```
+
 ### Jupyter
 ```bash
 alias jupyter-lab="jupyter lab --ip $(python3 -c "import subprocess; subprocess.run(['hostname', '-I'], text=True).stdout")"
